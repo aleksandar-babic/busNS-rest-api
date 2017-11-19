@@ -10,6 +10,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const port = 8080;
 const busesController = require('./api/controllers/buses');
+const lanesController = require('./api/controllers/lanes');
 const config = require('config');
 
 
@@ -30,14 +31,16 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/json'}));
 
 //Dummy home page route
-app.get("/", (req, res) => res.json({message: "Nothing to see here, go for docs!"}));
+app.get('/', (req, res) => res.json({message: 'Nothing to see here, go for docs!'}));
 
 //Buses routes setup
-app.route("/buses").get(busesController.getBuses);
-app.route("/buses/:id").get(busesController.getBus);
+app.route('/buses').get(busesController.getBuses);
+app.route('/buses/:id').get(busesController.getBus);
 
+//Lanes routes setup
+app.route('/lanes').get(lanesController.getLanes);
 
 app.listen(port);
-console.log("Listening on port " + port);
+console.log('Listening on port ' + port);
 
 module.exports = app; // for testing

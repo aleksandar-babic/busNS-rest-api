@@ -5,7 +5,6 @@
 
 const mongoose = require('mongoose');
 const Bus = require('../model/bus');
-const busesController = require('../controllers/buses');
 
 /**
  * GET /buses route to retrieve all the buses.
@@ -14,8 +13,8 @@ const busesController = require('../controllers/buses');
  */
 function getBuses(req, res) {
     const query = Bus.find({})
-        .then(buses => res.status(200).send(buses))
-        .catch(err => res.status(500).send(err));
+        .then(buses => res.status(200).json(buses))
+        .catch(err => res.status(500).json(err));
 }
 
 /**
@@ -25,8 +24,8 @@ function getBuses(req, res) {
  */
 function getBus(req, res) {
    Bus.findOne({id: req.params.id})
-       .then(bus => res.status(200).send(bus))
-       .catch(err => res.status(500).send(err));
+       .then(bus => res.status(200).josn(bus))
+       .catch(err => res.status(500).json(err));
 }
 
 module.exports = { getBuses, getBus };
