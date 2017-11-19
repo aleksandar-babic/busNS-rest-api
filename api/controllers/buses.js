@@ -3,9 +3,30 @@
  * Take a look at my portfolio at https://aleksandar.alfa-ing.com
  */
 
-const utilsScraper = require('../utils/gspnsScraper');
-const utilsBuildUrl = require('../utils/gspnsBuildUrl');
+const mongoose = require('mongoose');
+const Bus = require('../model/bus');
+const busesController = require('../controllers/buses');
 
-module.exports.getAllBuses = function () {
-    "use strict";
-};
+/**
+ * GET /buses route to retrieve all the buses.
+ * @param req
+ * @param res
+ */
+function getBuses(req, res) {
+    const query = Bus.find({})
+        .then(buses => res.status(200).send(buses))
+        .catch(err => res.status(500).send(err));
+}
+
+/**
+ * GET /buses/:id route to retrieve a bus schedule given its id.
+ * @param req
+ * @param res
+ */
+function getBus(req, res) {
+   Bus.findOne({id: req.params.id})
+       .then(bus => res.status(200).send(bus))
+       .catch(err => res.status(500).send(err));
+}
+
+module.exports = { getBuses, getBus };

@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const port = 8080;
-const buses = require('./api/routes/buses');
+const busesController = require('./api/controllers/buses');
 const config = require('config');
 
 
@@ -33,8 +33,8 @@ app.use(bodyParser.json({ type: 'application/json'}));
 app.get("/", (req, res) => res.json({message: "Nothing to see here, go for docs!"}));
 
 //Buses routes setup
-app.route("/buses").get(buses.getBuses);
-app.route("/buses/:id").get(buses.getBuses);
+app.route("/buses").get(busesController.getBuses);
+app.route("/buses/:id").get(busesController.getBus);
 
 
 app.listen(port);
