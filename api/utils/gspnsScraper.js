@@ -14,7 +14,7 @@ const utilsBuildUrl = require('./gspnsBuildUrl');
  */
 module.exports.scrapeLineCity = function (day) {
     return new Promise(async (resolve, reject) => {
-        day = day.toUpperCase();
+        day = day? day.toUpperCase():false;
         const queryData = await utilsBuildUrl.getUrlBaseValues();
         const baseUrl = 'http://www.gspns.co.rs/red-voznje/lista-linija';
         const URL = buildUrl(baseUrl, {
@@ -50,7 +50,7 @@ module.exports.scrapeLineCity = function (day) {
  */
 module.exports.scrapeLineNonCity = function (day) {
     return new Promise(async (resolve, reject) => {
-        day = day.toUpperCase();
+        day = day? day.toUpperCase():false;
         const queryData = await utilsBuildUrl.getUrlBaseValues();
         const baseUrl = 'http://www.gspns.co.rs/red-voznje/lista-linija';
         const URL = buildUrl(baseUrl, {

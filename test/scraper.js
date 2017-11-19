@@ -12,12 +12,15 @@ const assert = chai.assert;
 const utilsScraper = require('../api/utils/gspnsScraper');
 const utilsBuildUrl = require('../api/utils/gspnsBuildUrl');
 
+let countCity,countNonCity;
+
 
 describe('Scraper', () => {
     "use strict";
     it('it should return all city bus lanes on work days', (done) => {
         utilsScraper.scrapeLineCity('R').then(lanes => {
             lanes.should.be.a('array').that.have.lengthOf.at.least(15);
+            countCity = lanes.length;
             done();
         })
     });
@@ -45,8 +48,20 @@ describe('Scraper', () => {
 
 describe('Scraper', () => {
     "use strict";
+    it('it should return all city bus lanes when no day is specified', (done) => {
+        utilsScraper.scrapeLineCity().then(lanes => {
+            lanes.should.be.a('array').that.have.lengthOf.at.least(15);
+            lanes.should.have.lengthOf(countCity);
+            done();
+        })
+    });
+});
+
+describe('Scraper', () => {
+    "use strict";
     it('it should return all non city bus lanes on work days', (done) => {
         utilsScraper.scrapeLineNonCity('R').then(lanes => {
+            countNonCity = lanes.length;
             lanes.should.be.a('array').that.have.lengthOf.at.least(25);
             done();
         })
@@ -70,5 +85,16 @@ describe('Scraper', () => {
             lanes.should.be.a('array').that.have.lengthOf.at.least(25);
             done();
         });
+    });
+});
+
+describe('Scraper', () => {
+    "use strict";
+    it('it should return all non city bus lanes when no day is specified', (done) => {
+        utilsScraper.scrapeLineNonCity().then(lanes => {
+            lanes.should.be.a('array').that.have.lengthOf.at.least(25);
+            lanes.should.have.lengthOf(countNonCity);
+            done();
+        })
     });
 });
