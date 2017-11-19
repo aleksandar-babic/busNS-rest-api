@@ -33,7 +33,7 @@ app.use(bodyParser.json({ type: 'application/json'}));
 app.get("/", (req, res) => res.json({message: "Nothing to see here, go for docs!"}));
 
 //Buses routes setup
-app.route("/buses").get(buses.getBuses).post(buses.testBus);
+app.route("/buses").get(buses.getBuses);
 app.route("/buses/:id").get(buses.getBuses);
 
 

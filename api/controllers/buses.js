@@ -8,7 +8,4 @@ const utilsBuildUrl = require('../utils/gspnsBuildUrl');
 
 module.exports.getAllBuses = function () {
     "use strict";
-    //utils.scrapeBuses();
-    /*utilsBuildUrl.getUrlBaseValues()
-        .then(data => console.log(data));*/
 };
