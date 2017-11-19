@@ -5,9 +5,12 @@
 
 const mongoose = require('mongoose');
 const Bus = require('../model/bus');
+const busesController = require('../controllers/buses');
 
-/*
+/**
  * GET /buses route to retrieve all the buses.
+ * @param req
+ * @param res
  */
 function getBuses(req, res) {
     const query = Bus.find({})
@@ -15,8 +18,10 @@ function getBuses(req, res) {
         .catch(err => res.status(500).send(err));
 }
 
-/*
+/**
  * GET /buses/:id route to retrieve a bus schedule given its id.
+ * @param req
+ * @param res
  */
 function getBus(req, res) {
    Bus.findOne({id: req.params.id})
@@ -24,50 +29,4 @@ function getBus(req, res) {
        .catch(err => res.status(500).send(err));
 }
 
-/*
- * POST /buses to test Bus scheme.
- */
-function testBus(req, res) {
-    const rasporedA = {
-        "07": [
-            "21",
-            "33",
-            "46",
-            "56"
-        ],
-        "08": [
-            "28",
-            "39",
-            "49",
-            "59"
-        ]
-    };
-
-    const rasporedB = {
-        "09": [
-            "21",
-            "33",
-            "46",
-            "56"
-        ],
-        "10": [
-            "28",
-            "39",
-            "49",
-            "59"
-        ]
-    };
-
-    const bus = new Bus();
-    bus.id = '9';
-    bus.linija = 'NOVO NASELJE - CENTAR - LIMAN I';
-    bus.dan = 'R';
-    bus.dodaci = 'Niskopodni';
-    bus.rasporedA = rasporedA;
-    bus.rasporedB = rasporedB;
-    bus.save()
-        .then(() => res.status(200).send(bus))
-        .catch(err => res.status(500).send(err));
-}
-
-module.exports = { getBuses, getBus, testBus };
+module.exports = { getBuses, getBus };

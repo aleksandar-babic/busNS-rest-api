@@ -26,10 +26,12 @@
   "homepage": "https://github.com/aleksandar-babic/busNS-rest-api#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "build-url": "^1.0.10",
     "config": "^1.28.1",
     "express": "^4.16.2",
     "mongoose": "^4.13.4",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "osmosis": "^1.1.4"
   },
   "devDependencies": {
     "chai": "^4.1.2",

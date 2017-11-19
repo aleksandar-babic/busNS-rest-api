@@ -13,7 +13,7 @@ const Bus = require('../api/model/bus');
 
 chai.use(chaiHttp);
 
-/*
+/**
  * Wipe test database before running each test
  */
 describe('Buses', () => {
