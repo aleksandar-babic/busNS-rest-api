@@ -1,0 +1,39 @@
+{
+  "name": "busns-rest-api",
+  "version": "1.0.0",
+  "description": "Rest API for GSPNS bus schedule.",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=dev && node server.js",
+    "test": "mocha --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleksandar-babic/busNS-rest-api.git"
+  },
+  "keywords": [
+    "gspns",
+    "rest",
+    "api",
+    "bus",
+    "busns"
+  ],
+  "author": "Aleksandar Babic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aleksandar-babic/busNS-rest-api/issues"
+  },
+  "homepage": "https://github.com/aleksandar-babic/busNS-rest-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "config": "^1.28.1",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.4",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^4.0.1"
+  }
+}
