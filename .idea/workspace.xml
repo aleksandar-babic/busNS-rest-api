@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="604b439d-fd36-4a7f-ab7d-da9e8e7281ae" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/buses.js" afterPath="$PROJECT_DIR$/api/controllers/buses.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/bus.js" afterPath="$PROJECT_DIR$/test/bus.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/scraper.js" afterPath="$PROJECT_DIR$/test/scraper.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,21 +19,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file leaf-file-name="buses.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/controllers/buses.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+            <state relative-caret-position="595">
+              <caret line="41" column="108" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="108" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <file leaf-file-name="bus.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/bus.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+            <state relative-caret-position="541">
+              <caret line="126" column="73" lean-forward="false" selection-start-line="126" selection-start-column="73" selection-end-line="126" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scraper.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/scraper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="432" column="68" lean-forward="false" selection-start-line="432" selection-start-column="68" selection-end-line="432" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -61,6 +74,10 @@
       <find>busID</find>
       <find>linija%5B%5D</find>
       <find>busId</find>
+      <find>assert</find>
+      <find>asse</find>
+      <find>11A</find>
+      <find>9</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -85,13 +102,13 @@
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/api/model/busTwoWay.js" />
         <option value="$PROJECT_DIR$/api/model/bus.js" />
-        <option value="$PROJECT_DIR$/api/controllers/buses.js" />
         <option value="$PROJECT_DIR$/api/controllers/lanes.js" />
-        <option value="$PROJECT_DIR$/test/bus.js" />
         <option value="$PROJECT_DIR$/test/lanes.js" />
         <option value="$PROJECT_DIR$/api/utils/gspnsScraper.js" />
-        <option value="$PROJECT_DIR$/test/scraper.js" />
         <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/api/controllers/buses.js" />
+        <option value="$PROJECT_DIR$/test/bus.js" />
+        <option value="$PROJECT_DIR$/test/scraper.js" />
       </list>
     </option>
   </component>
@@ -204,24 +221,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.Scraper.Buses.it should return bus schedule for bus number 18A on sunday">
-    <configuration name="Scraper.Buses.it should return bus schedule for bus number 18A on sunday" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Mocha.Buses./GET buses/:id.it should return bus lane object with all data">
+    <configuration name="Buses./GET buses/:id" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <envs />
       <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/scraper.js</test-file>
+      <extra-mocha-options>--timeout 10000 --exit</extra-mocha-options>
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/test/bus.js</test-file>
       <test-names>
-        <name value="Scraper" />
         <name value="Buses" />
-        <name value="it should return bus schedule for bus number 18A on sunday" />
+        <name value="/GET buses/:id" />
       </test-names>
     </configuration>
-    <configuration name="Scraper.Buses.it should return bus schedule for bus number 9 on saturday" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+    <configuration name="Buses./GET buses/:id.it should return bus lane object with all data" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
@@ -230,42 +246,59 @@
       <ui>bdd</ui>
       <extra-mocha-options>--timeout 10000 --exit</extra-mocha-options>
       <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/scraper.js</test-file>
+      <test-file>$PROJECT_DIR$/test/bus.js</test-file>
       <test-names>
-        <name value="Scraper" />
         <name value="Buses" />
-        <name value="it should return bus schedule for bus number 9 on saturday" />
+        <name value="/GET buses/:id" />
+        <name value="it should return bus lane object with all data" />
       </test-names>
     </configuration>
-    <configuration name="Scraper.Buses.it should return message with error that bus does not exist" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+    <configuration name="Buses./GET buses/:id.it should return error because that bus does not exist in non city lanes pool" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <envs />
       <ui>bdd</ui>
-      <extra-mocha-options />
+      <extra-mocha-options>--timeout 10000 --exit</extra-mocha-options>
       <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/scraper.js</test-file>
+      <test-file>$PROJECT_DIR$/test/bus.js</test-file>
       <test-names>
-        <name value="Scraper" />
         <name value="Buses" />
-        <name value="it should return message with error that bus does not exist" />
+        <name value="/GET buses/:id" />
+        <name value="it should return error because that bus does not exist in non city lanes pool" />
       </test-names>
     </configuration>
-    <configuration name="URLs.Get URL base values" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+    <configuration name="Buses./GET buses/:id.it should return error because that bus does not exist" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <envs />
       <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/url.js</test-file>
+      <extra-mocha-options>--timeout 10000 --exit</extra-mocha-options>
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/bus.js</test-file>
       <test-names>
-        <name value="URLs" />
-        <name value="Get URL base values" />
+        <name value="Buses" />
+        <name value="/GET buses/:id" />
+        <name value="it should return error because that bus does not exist" />
+      </test-names>
+    </configuration>
+    <configuration name="Buses./GET buses/:id.it should return error that rv value is not valid" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options>--timeout 10000 --exit</extra-mocha-options>
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/bus.js</test-file>
+      <test-names>
+        <name value="Buses" />
+        <name value="/GET buses/:id" />
+        <name value="it should return error that rv value is not valid" />
       </test-names>
     </configuration>
     <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
@@ -303,18 +336,20 @@
         </option>
       </EXTENSION>
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Mocha.URLs.Get URL base values" />
-      <item index="1" class="java.lang.String" itemvalue="Mocha.Scraper.Buses.it should return message with error that bus does not exist" />
-      <item index="2" class="java.lang.String" itemvalue="Mocha.Scraper.Buses.it should return bus schedule for bus number 9 on saturday" />
-      <item index="3" class="java.lang.String" itemvalue="Mocha.Scraper.Buses.it should return bus schedule for bus number 18A on sunday" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Mocha.Buses./GET buses/:id" />
+      <item index="1" class="java.lang.String" itemvalue="Mocha.Buses./GET buses/:id.it should return error that rv value is not valid" />
+      <item index="2" class="java.lang.String" itemvalue="Mocha.Buses./GET buses/:id.it should return error because that bus does not exist" />
+      <item index="3" class="java.lang.String" itemvalue="Mocha.Buses./GET buses/:id.it should return error because that bus does not exist in non city lanes pool" />
+      <item index="4" class="java.lang.String" itemvalue="Mocha.Buses./GET buses/:id.it should return bus lane object with all data" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Mocha.Scraper.Buses.it should return bus schedule for bus number 18A on sunday" />
-        <item index="1" class="java.lang.String" itemvalue="Mocha.Scraper.Buses.it should return message with error that bus does not exist" />
-        <item index="2" class="java.lang.String" itemvalue="Mocha.Scraper.Buses.it should return bus schedule for bus number 9 on saturday" />
-        <item index="3" class="java.lang.String" itemvalue="Mocha.URLs.Get URL base values" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Mocha.Buses./GET buses/:id.it should return bus lane object with all data" />
+        <item index="1" class="java.lang.String" itemvalue="Mocha.Buses./GET buses/:id" />
+        <item index="2" class="java.lang.String" itemvalue="Mocha.Buses./GET buses/:id.it should return error because that bus does not exist in non city lanes pool" />
+        <item index="3" class="java.lang.String" itemvalue="Mocha.Buses./GET buses/:id.it should return error because that bus does not exist" />
+        <item index="4" class="java.lang.String" itemvalue="Mocha.Buses./GET buses/:id.it should return error that rv value is not valid" />
       </list>
     </recent_temporary>
   </component>
@@ -332,44 +367,44 @@
       <option name="presentableId" value="Default" />
       <updated>1511093187531</updated>
       <workItem from="1511093188829" duration="42265000" />
-      <workItem from="1511354861259" duration="11874000" />
+      <workItem from="1511354861259" duration="15054000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Scraper_Buses_it_should_return_bus_schedule_for_bus_number_18A_on_sunday - 2017.11.23 at 00h 37m 31s.xml">
-      <configuration name="Scraper.Buses.it should return bus schedule for bus number 18A on sunday" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Buses__GET_buses__id - 2017.11.23 at 15h 52m 49s.xml">
+      <configuration name="Buses./GET buses/:id" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Scraper_Buses_it_should_return_bus_schedule_for_bus_number_18A_on_sunday - 2017.11.23 at 00h 38m 08s.xml">
-      <configuration name="Scraper.Buses.it should return bus schedule for bus number 18A on sunday" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Buses__GET_buses__id - 2017.11.23 at 15h 54m 15s.xml">
+      <configuration name="Buses./GET buses/:id" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Scraper_Buses_it_should_return_bus_schedule_for_bus_number_18A_on_sunday - 2017.11.23 at 00h 40m 27s.xml">
-      <configuration name="Scraper.Buses.it should return bus schedule for bus number 18A on sunday" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Buses__GET_buses__id - 2017.11.23 at 15h 54m 23s.xml">
+      <configuration name="Buses./GET buses/:id" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Scraper_Buses_it_should_return_bus_schedule_for_bus_number_9_on_saturday - 2017.11.23 at 00h 34m 09s.xml">
-      <configuration name="Scraper.Buses.it should return bus schedule for bus number 9 on saturday" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Buses__GET_buses__id_it_should_return_bus_lane_object_with_all_data - 2017.11.23 at 15h 56m 36s.xml">
+      <configuration name="Buses./GET buses/:id.it should return bus lane object with all data" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Scraper_Buses_it_should_return_bus_schedule_for_bus_number_9_on_saturday - 2017.11.23 at 00h 34m 20s.xml">
-      <configuration name="Scraper.Buses.it should return bus schedule for bus number 9 on saturday" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Buses__GET_buses__id_it_should_return_error_because_that_bus_does_not_exist - 2017.11.23 at 15h 50m 41s.xml">
+      <configuration name="Buses./GET buses/:id.it should return error because that bus does not exist" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Scraper_Buses_it_should_return_bus_schedule_for_bus_number_9_on_saturday - 2017.11.23 at 00h 34m 57s.xml">
-      <configuration name="Scraper.Buses.it should return bus schedule for bus number 9 on saturday" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Buses__GET_buses__id_it_should_return_error_because_that_bus_does_not_exist - 2017.11.23 at 15h 50m 53s.xml">
+      <configuration name="Buses./GET buses/:id.it should return error because that bus does not exist" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Scraper_Buses_it_should_return_bus_schedule_for_bus_number_9_on_saturday - 2017.11.23 at 00h 35m 30s.xml">
-      <configuration name="Scraper.Buses.it should return bus schedule for bus number 9 on saturday" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Buses__GET_buses__id_it_should_return_error_because_that_bus_does_not_exist - 2017.11.23 at 15h 50m 59s.xml">
+      <configuration name="Buses./GET buses/:id.it should return error because that bus does not exist" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Scraper_Buses_it_should_return_bus_schedule_for_bus_number_9_on_saturday - 2017.11.23 at 00h 35m 46s.xml">
-      <configuration name="Scraper.Buses.it should return bus schedule for bus number 9 on saturday" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Buses__GET_buses__id_it_should_return_error_because_that_bus_does_not_exist_in_non_city_lanes_pool - 2017.11.23 at 15h 51m 29s.xml">
+      <configuration name="Buses./GET buses/:id.it should return error because that bus does not exist in non city lanes pool" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Scraper_Buses_it_should_return_message_with_error_that_bus_does_not_exist - 2017.11.23 at 00h 33m 46s.xml">
-      <configuration name="Scraper.Buses.it should return message with error that bus does not exist" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Buses__GET_buses__id_it_should_return_error_that_dan_value_is_not_valid - 2017.11.23 at 15h 43m 44s.xml">
+      <configuration name="Buses./GET buses/:id.it should return error that dan value is not valid" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Scraper_Buses_it_should_return_message_with_error_that_bus_does_not_exist - 2017.11.23 at 00h 34m 28s.xml">
-      <configuration name="Scraper.Buses.it should return message with error that bus does not exist" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Buses__GET_buses__id_it_should_return_error_that_rv_value_is_not_valid - 2017.11.23 at 15h 44m 11s.xml">
+      <configuration name="Buses./GET buses/:id.it should return error that rv value is not valid" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54139000" />
+    <option name="totallyTimeSpent" value="57319000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -389,7 +424,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20204313" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986821" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2905789" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -511,16 +546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/model/busTwoWay.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#118#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -557,30 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/controllers/buses.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/lanes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="107" column="40" lean-forward="false" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/scraper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3871">
-          <caret line="335" column="55" lean-forward="false" selection-start-line="335" selection-start-column="55" selection-end-line="335" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/url.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -589,26 +590,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/bus.js">
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="28" lean-forward="true" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        <state relative-caret-position="90">
+          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/lanes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="107" column="40" lean-forward="false" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/model/busTwoWay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#118#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+        <state relative-caret-position="216">
+          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
+    <entry file="file://$PROJECT_DIR$/api/controllers/buses.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        <state relative-caret-position="595">
+          <caret line="41" column="108" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/bus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="126" column="73" lean-forward="false" selection-start-line="126" selection-start-column="73" selection-end-line="126" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/scraper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="432" column="68" lean-forward="false" selection-start-line="432" selection-start-column="68" selection-end-line="432" selection-end-column="68" />
           <folding />
         </state>
       </provider>

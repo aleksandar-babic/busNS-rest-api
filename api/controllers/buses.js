@@ -15,6 +15,7 @@ const utilsScraper = require('../utils/gspnsScraper');
  */
 function getBuses(req, res) {
     //TODO Implement get for all buses
+    return res.status(404).json([]);
 }
 
 /**
@@ -27,7 +28,7 @@ function getBus(req, res) {
 
     if (!req.query.dan || !req.query.rv || !req.params.id) {
         return res.status(400)
-            .json({'message': 'Malformed request, query parameters dan,rv and linija are required.'});
+            .json({'message': 'Malformed request, query parameters dan and rv are required.'});
     } else {
         dan = req.query.dan.toUpperCase();
         rv = req.query.rv.toLowerCase();

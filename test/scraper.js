@@ -280,6 +280,48 @@ describe('Scraper', () => {
         });
 
         "use strict";
+        it('it should return message with error that bus does not exist (Bus 5N is only active on sundays, but its requested on work day)', (done) => {
+            utilsScraper.scrapeBus('5N.', 'R', 'rvp')
+                .then(data => {
+                    //Do nothing, promise should be rejected
+                })
+                .catch(error => {
+                    error.should.be.a('object').that.has.property('message');
+                    assert(error.message, 'Error while getting bus schedule, double check bus lane number.');
+                    done();
+                });
+        });
+
+        "use strict";
+        it('it should return message with error that bus does not exist (Bus 5N is only active on sundays, but its requested on saturday)', (done) => {
+            utilsScraper.scrapeBus('5N.', 'S', 'rvp')
+                .then(data => {
+                    //Do nothing, promise should be rejected
+                })
+                .catch(error => {
+                    error.should.be.a('object').that.has.property('message');
+                    assert(error.message, 'Error while getting bus schedule, double check bus lane number.');
+                    done();
+                });
+        });
+
+        "use strict";
+        it('it should return bus schedule for bus number 5N on sunday (only day for this bus)', (done) => {
+            utilsScraper.scrapeBus('5n.', 'N', 'rvg').then(lane => {
+                lane.should.be.a('object').that.is.not.empty;
+                lane.should.have.property('linijaA').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('linijaB').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('dan').that.is.a('string').and.has.lengthOf(1);
+                lane.should.have.property('id').that.is.a('string').and.has.lengthOf(3);
+                lane.should.have.property('rasporedA').that.is.a('object');
+                lane.should.have.property('rasporedB').that.is.a('object');
+                assert.equal(Object.keys(lane.rasporedA).length, 9);
+                assert.equal(Object.keys(lane.rasporedB).length, 8);
+                done();
+            })
+        });
+
+        "use strict";
         it('it should return bus schedule for bus number 18A on work days', (done) => {
             utilsScraper.scrapeBus('18A', 'R', 'rvg').then(lane => {
                 lane.should.be.a('object').that.is.not.empty;
@@ -351,6 +393,102 @@ describe('Scraper', () => {
                 lane.should.have.property('id').that.is.a('string').and.has.lengthOf(3);
                 lane.should.have.property('raspored').that.is.a('object');
                 assert.equal(Object.keys(lane.raspored).length, 5);
+                done();
+            })
+        });
+
+        "use strict";
+        it('it should return bus schedule for bus number 9 on work days', (done) => {
+            utilsScraper.scrapeBus('9.', 'R', 'rvg').then(lane => {
+                lane.should.be.a('object').that.is.not.empty;
+                lane.should.have.property('linijaA').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('linijaB').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('dan').that.is.a('string').and.has.lengthOf(1);
+                lane.should.have.property('id').that.is.a('string').and.has.lengthOf(2);
+                lane.should.have.property('rasporedA').that.is.a('object');
+                lane.should.have.property('rasporedB').that.is.a('object');
+                assert.equal(Object.keys(lane.rasporedA).length, 21);
+                assert.equal(Object.keys(lane.rasporedB).length, 21);
+                done();
+            })
+        });
+
+        "use strict";
+        it('it should return bus schedule for bus number 9 on saturday', (done) => {
+            utilsScraper.scrapeBus('9.', 'S', 'rvg').then(lane => {
+                lane.should.be.a('object').that.is.not.empty;
+                lane.should.have.property('linijaA').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('linijaB').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('dan').that.is.a('string').and.has.lengthOf(1);
+                lane.should.have.property('id').that.is.a('string').and.has.lengthOf(2);
+                lane.should.have.property('rasporedA').that.is.a('object');
+                lane.should.have.property('rasporedB').that.is.a('object');
+                assert.equal(Object.keys(lane.rasporedA).length, 21);
+                assert.equal(Object.keys(lane.rasporedB).length, 21);
+                done();
+            })
+        });
+
+        "use strict";
+        it('it should return bus schedule for bus number 9 on sunday', (done) => {
+            utilsScraper.scrapeBus('9.', 'N', 'rvg').then(lane => {
+                lane.should.be.a('object').that.is.not.empty;
+                lane.should.have.property('linijaA').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('linijaB').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('dan').that.is.a('string').and.has.lengthOf(1);
+                lane.should.have.property('id').that.is.a('string').and.has.lengthOf(2);
+                lane.should.have.property('rasporedA').that.is.a('object');
+                lane.should.have.property('rasporedB').that.is.a('object');
+                assert.equal(Object.keys(lane.rasporedA).length, 21);
+                assert.equal(Object.keys(lane.rasporedB).length, 21);
+                done();
+            })
+        });
+
+        "use strict";
+        it('it should return bus schedule for bus number 5 on work days', (done) => {
+            utilsScraper.scrapeBus('5', 'R', 'rvg').then(lane => {
+                lane.should.be.a('object').that.is.not.empty;
+                lane.should.have.property('linijaA').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('linijaB').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('dan').that.is.a('string').and.has.lengthOf(1);
+                lane.should.have.property('id').that.is.a('string').and.has.lengthOf(1);
+                lane.should.have.property('rasporedA').that.is.a('object');
+                lane.should.have.property('rasporedB').that.is.a('object');
+                assert.equal(Object.keys(lane.rasporedA).length, 21);
+                assert.equal(Object.keys(lane.rasporedB).length, 21);
+                done();
+            })
+        });
+
+        "use strict";
+        it('it should return bus schedule for bus number 5 on saturday', (done) => {
+            utilsScraper.scrapeBus('5', 'S', 'rvg').then(lane => {
+                lane.should.be.a('object').that.is.not.empty;
+                lane.should.have.property('linijaA').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('linijaB').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('dan').that.is.a('string').and.has.lengthOf(1);
+                lane.should.have.property('id').that.is.a('string').and.has.lengthOf(1);
+                lane.should.have.property('rasporedA').that.is.a('object');
+                lane.should.have.property('rasporedB').that.is.a('object');
+                assert.equal(Object.keys(lane.rasporedA).length, 21);
+                assert.equal(Object.keys(lane.rasporedB).length, 21);
+                done();
+            })
+        });
+
+        "use strict";
+        it('it should return bus schedule for bus number 5 on sunday', (done) => {
+            utilsScraper.scrapeBus('5', 'N', 'rvg').then(lane => {
+                lane.should.be.a('object').that.is.not.empty;
+                lane.should.have.property('linijaA').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('linijaB').that.is.a('string').and.is.not.empty;
+                lane.should.have.property('dan').that.is.a('string').and.has.lengthOf(1);
+                lane.should.have.property('id').that.is.a('string').and.has.lengthOf(1);
+                lane.should.have.property('rasporedA').that.is.a('object');
+                lane.should.have.property('rasporedB').that.is.a('object');
+                assert.equal(Object.keys(lane.rasporedA).length, 21);
+                assert.equal(Object.keys(lane.rasporedB).length, 21);
                 done();
             })
         });
