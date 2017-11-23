@@ -6,15 +6,15 @@
 const mongoose = require('mongoose');
 const Bus = require('../model/bus');
 
+const utilsScraper = require('../utils/gspnsScraper');
+
 /**
  * GET /buses route to retrieve all the buses.
  * @param req
  * @param res
  */
 function getBuses(req, res) {
-    const query = Bus.find({})
-        .then(buses => res.status(200).json(buses))
-        .catch(err => res.status(500).json(err));
+    //TODO Implement get for all buses
 }
 
 /**
@@ -23,9 +23,26 @@ function getBuses(req, res) {
  * @param res
  */
 function getBus(req, res) {
-   Bus.findOne({id: req.params.id})
-       .then(bus => res.status(200).josn(bus))
-       .catch(err => res.status(500).json(err));
+    let dan, rv, linija;
+
+    if (!req.query.dan || !req.query.rv || !req.params.id) {
+        return res.status(400)
+            .json({'message': 'Malformed request, query parameters dan,rv and linija are required.'});
+    } else {
+        dan = req.query.dan.toUpperCase();
+        rv = req.query.rv.toLowerCase();
+        linija = req.params.id.toUpperCase();
+    }
+    if (dan !== 'R' && dan !== 'S' && dan !== 'N') {
+        return res.status(400)
+            .json({'message': 'Malformed request, allowed values for query parameter dan are \'R\', \'S\', \'N\''});
+    } else if (rv !== 'rvg' && rv !== 'rvp') {
+        return res.status(400)
+            .json({'message': 'Malformed request, allowed values for query parameter rv are \'rvg\', \'rvp\''});
+    }
+    utilsScraper.scrapeBus(linija, dan, rv)
+        .then(data => res.status(200).json(data))
+        .catch(err => res.status(500).json(err));
 }
 
-module.exports = { getBuses, getBus };
+module.exports = {getBuses, getBus};
