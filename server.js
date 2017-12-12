@@ -5,22 +5,14 @@
 
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const port = 8080;
 const busesController = require('./api/controllers/buses');
 const lanesController = require('./api/controllers/lanes');
-const config = require('config');
-
-
-//DB Connection
-mongoose.connect(config.DBHost, {useMongoClient: true});
-let db = mongoose.connection;
-db.on('error', console.error.bind(console, 'Connection error:'));
 
 //Don't use morgan logging in test environment
-if(config.util.getEnv('NODE_ENV') !== 'test') {
+if(process.env.NODE_ENV !== 'test') {
     app.use(morgan('combined')); //Apache style logs
 }
 

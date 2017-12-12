@@ -3,7 +3,6 @@
  * Take a look at my portfolio at https://aleksandar.alfa-ing.com
  */
 process.env.NODE_ENV = 'test';
-const mongoose = require('mongoose');
 const chai = require('chai');
 const server = require('../server');
 const should = chai.should();

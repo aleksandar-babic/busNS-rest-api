@@ -3,7 +3,6 @@
  * Take a look at my portfolio at https://aleksandar.alfa-ing.com
  */
 
-const mongoose = require('mongoose');
 const Bus = require('../model/bus');
 
 const utilsScraper = require('../utils/gspnsScraper');

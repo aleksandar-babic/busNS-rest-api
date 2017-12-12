@@ -3,21 +3,16 @@
  * Take a look at my portfolio at https://aleksandar.alfa-ing.com
  */
 
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-
-
-const busSchema = new Schema(
-    {
-        id: { type: String, required: true },
-        linijaA: { type: String },
-        linijaB: { type: String },
-        dan: { type: String, enum: ['R', 'S', 'N'] },
-        rasporedA: {type: Object, default: {}},
-        rasporedB: {type: Object, default: {}},
-        dodaci: {type: String}
+module.exports = class BusTwoWay {
+    constructor(id, linijaA, linijaB,
+                dan, rasporedA = {},
+                rasporedB = {}, dodaci) {
+        this.id = id;
+        this.linijaA = linijaA;
+        this.linijaB = linijaB;
+        this.dan = dan;
+        this.rasporedA = rasporedA;
+        this.rasporedB = rasporedB;
+        this.dodaci = dodaci;
     }
-);
-
-
-module.exports = mongoose.model('BusTwoWay', busSchema);
+};
