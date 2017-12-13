@@ -1,4 +1,4 @@
-#Use Alpine linux with NodeJS LTS preinstalled as base
+#Use Debian Stretch with NodeJS LTS preinstalled as base
 FROM node:8-stretch
 
 #Create working directory and copy all files to it
