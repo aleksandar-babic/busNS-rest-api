@@ -2,6 +2,9 @@
 ### What is this?
 ##### This API will allow you to get all informations about bus lanes (both city and suburban) and all informations about bus schedules (again, both city and suburban).
 
+### Where can I see it in action?
+API is live on [http://busns.aleksandar-babic.com](http://busns.aleksandar-babic.com:8080/) (on port 8080)
+
 ### How to run it?
 * Option 1 - Clone this repository, install node dependencies and run API
 ```bash
