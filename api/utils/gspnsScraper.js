@@ -9,6 +9,7 @@ const buildUrl = require('build-url');
 const utilsBuildUrl = require('./gspnsBuildUrl');
 const Bus = require('../model/bus');
 const BusTwoWay = require('../model/busTwoWay');
+const Lane = require('../model/lane');
 
 /**
  * Will take day as parameter ('R','S','N' ), it will fallback to 'R' if no parameter is passed
@@ -41,8 +42,9 @@ module.exports.scrapeLaneCity = function (day) {
             .data(async data => {
                 "use strict";
                 const mappedArray = await data.linije.map((curr, index) => {
-                    const newCurr = {};
-                    newCurr[curr] = data.linijeTekst[index];
+                    const newCurr = new Lane();
+                    newCurr.id = curr;
+                    newCurr.linija = data.linijeTekst[index];
                     return newCurr;
                 });
                 if (mappedArray.length == 0)
@@ -83,8 +85,9 @@ module.exports.scrapeLaneNonCity = function (day) {
             .data(async data => {
                 "use strict";
                 const mappedArray = await data.linije.map((curr, index) => {
-                    const newCurr = {};
-                    newCurr[curr] = data.linijeTekst[index];
+                    const newCurr = new Lane();
+                    newCurr.id = curr;
+                    newCurr.linija = data.linijeTekst[index];
                     return newCurr;
                 });
                 if (mappedArray.length == 0)
