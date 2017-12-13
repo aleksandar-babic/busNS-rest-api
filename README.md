@@ -16,6 +16,8 @@ npm start
 docker run -it -p 8080:8080 allexki/busns-rest:node
 ```
 > Either of options will start API that listens on port 8080
+### Are there any API Docs?
+Yes, this project is using Swagger for docs, you can find it on / route.
 ### How to run unit tests?
 API is using Mocha as test runner, chai(and chai-http), to run all unit tests execute following command : 
 ```bash
