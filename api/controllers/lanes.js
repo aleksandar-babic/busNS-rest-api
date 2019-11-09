@@ -36,7 +36,15 @@ function getAllLanes(req, res) {
                 async_call += 1;
                 sve_linije = sve_linije.concat(lanes);
                 if(async_call === dani.length) {
-                    res.status(200).json(arrayUnique(sve_linije))
+                    res.status(200).json(arrayUnique(sve_linije).sort(function(a, b){
+                        var x = a.id.toLowerCase();
+                        var y = b.id.toLowerCase();
+                        x = x.replace(/[^0-9]/g, '');
+                        y = y.replace(/[^0-9]/g, '');
+                        var numX = parseInt(x);
+                        var numY = parseInt(y);
+                        return numX - numY;
+                    }))
                 }
             })
             .catch(err => res.status(500).json(err));
@@ -46,7 +54,15 @@ function getAllLanes(req, res) {
                     async_call += 1;
                     sve_linije = sve_linije.concat(lanes);
                     if(async_call === dani.length) {
-                        res.status(200).json(arrayUnique(sve_linije))
+                        res.status(200).json(arrayUnique(sve_linije).sort(function(a, b){
+                            var x = a.id.toLowerCase();
+                            var y = b.id.toLowerCase();
+                            x = x.replace(/[^0-9]/g, '');
+                            y = y.replace(/[^0-9]/g, '');
+                            var numX = parseInt(x);
+                            var numY = parseInt(y);
+                            return numX - numY;
+                        }))
                     }
                 })
                 .catch(err => res.status(500).json(err));
