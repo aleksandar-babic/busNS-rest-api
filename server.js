@@ -32,7 +32,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/json'}));
 
 //Buses routes setup
-app.route('/buses').get(busesController.getBuses);
+app.route('/all-buses/:id').get(busesController.getBuses);
 app.route('/buses/:id').get(busesController.getBus);
 
 //Lanes routes setup

@@ -25,14 +25,14 @@
   },
   "homepage": "https://github.com/aleksandar-babic/busNS-rest-api#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "build-url": "^1.0.10",
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.2",
-    "morgan": "^1.9.0",
-    "osmosis": "^1.1.4",
-    "request": "^2.83.0",
-    "swagger-ui-express": "^2.0.11"
+    "body-parser": "^1.19.0",
+    "build-url": "^1.3.3",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "osmosis": "^1.1.10",
+    "request": "^2.88.0",
+    "swagger-ui-express": "^2.0.15"
   },
   "devDependencies": {
     "chai": "^4.1.2",
