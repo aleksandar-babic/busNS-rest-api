@@ -141,6 +141,8 @@ module.exports.scrapeBus = function (busId, day, rv) {
                     bus.dan = day.toUpperCase();
                     bus.linijaA = $('tbody > tr > th').slice(0, 1).text().trim();
                     bus.linijaB = $('tbody > tr > th').slice(1, 2).text().trim();
+                    bus.linijaA = bus.linijaA.slice(9);
+                    bus.linijaB = bus.linijaB.slice(9);
                     //Iterate through both lane ways
                     $('tbody > tr > td').each(function (laneIndex) {
                         if (laneIndex == 2) return;
@@ -176,6 +178,7 @@ module.exports.scrapeBus = function (busId, day, rv) {
                     bus.id = busId.toUpperCase();
                     bus.dan = day.toUpperCase();
                     bus.linija = $('tbody > tr > th').text().trim();
+                    bus.linija = bus.linija.slice(9);
                     //Iterate through each hour
                     $('td > b').each(function (index) {
                         let hour = $(this).text();
