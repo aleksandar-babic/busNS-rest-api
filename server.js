@@ -37,6 +37,7 @@ app.route('/buses/:id').get(busesController.getBus);
 
 //Lanes routes setup
 app.route('/lanes').get(lanesController.getLanes);
+app.route('/all-lanes').get(lanesController.getAllLanes);
 
 //Swagger UI setup
 app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

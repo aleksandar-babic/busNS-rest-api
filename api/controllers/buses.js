@@ -36,19 +36,18 @@ function getBuses(req, res) {
         .then(data => {
             async_call += 1;
             cela_nedelja.push(data)
-            if(async_call === 3) {
+            if(async_call === dani.length) {
                 res.status(200).json(cela_nedelja)
             }
         })
         .catch(err => {
             async_call += 1;
-            if(async_call === 3 && cela_nedelja.length === 0) {
+            if(async_call === dani.length && cela_nedelja.length === 0) {
                 res.status(500).json(err)
-            } else if (async_call === 3) {
+            } else if (async_call === dani.length) {
                 res.status(200).json(cela_nedelja)
             }
         });
-
     }
 }
 

@@ -10,6 +10,55 @@ const utilsScraper = require('../utils/gspnsScraper');
  * @param req
  * @param res
  */
+function getAllLanes(req, res) {
+    "use strict";
+    let rv;
+    let async_call = 0;
+    let sve_linije = [];
+    var dan;
+    if (!req.query.rv) {
+        return res.status(400)
+            .json({'message': 'Malformed request, query parameters dan and rv are required.'});
+    } else {
+        var dani = ['R', 'S', 'N'];
+        rv = req.query.rv.toLowerCase();
+    }
+
+    if (rv !== 'rvg' && rv !== 'rvp') {
+        return res.status(400)
+            .json({'message': 'Malformed request, allowed values for query parameter rv are \'rvg\', \'rvp\''});
+    }
+    
+    for(dan of dani){
+        if (rv === 'rvg') {
+            utilsScraper.scrapeLaneCity(dan)
+            .then(lanes => {
+                async_call += 1;
+                sve_linije = sve_linije.concat(lanes);
+                if(async_call === dani.length) {
+                    res.status(200).json(arrayUnique(sve_linije))
+                }
+            })
+            .catch(err => res.status(500).json(err));
+        } else {
+            utilsScraper.scrapeLaneNonCity(dan)
+                .then(lanes => {
+                    async_call += 1;
+                    sve_linije = sve_linije.concat(lanes);
+                    if(async_call === dani.length) {
+                        res.status(200).json(arrayUnique(sve_linije))
+                    }
+                })
+                .catch(err => res.status(500).json(err));
+        }
+    }
+}
+
+/**
+ * GET /lanes route to retrieve all available bus lanes.
+ * @param req
+ * @param res
+ */
 function getLanes(req, res) {
     "use strict";
     let dan, rv;
@@ -41,4 +90,16 @@ function getLanes(req, res) {
     }
 }
 
-module.exports = {getLanes};
+module.exports = {getAllLanes, getLanes};
+
+function arrayUnique(array) {
+    var a = array.concat();
+    for(var i=0; i<a.length; ++i) {
+        for(var j=i+1; j<a.length; ++j) {
+            if(a[i].id === a[j].id)
+                a.splice(j--, 1);
+        }
+    }
+
+    return a;
+}
