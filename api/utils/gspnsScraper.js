@@ -44,7 +44,9 @@ module.exports.scrapeLaneCity = function (day) {
                 const mappedArray = await data.linije.map((curr, index) => {
                     const newCurr = new Lane();
                     newCurr.id = curr;
-                    newCurr.linija = data.linijeTekst[index];
+                    var title = data.linijeTekst[index];
+                    newCurr.broj = title.split(/ (.*)/)[0];
+                    newCurr.linija = title.split(/ (.*)/)[1];
                     return newCurr;
                 });
                 if (mappedArray.length == 0)
@@ -87,7 +89,9 @@ module.exports.scrapeLaneNonCity = function (day) {
                 const mappedArray = await data.linije.map((curr, index) => {
                     const newCurr = new Lane();
                     newCurr.id = curr;
-                    newCurr.linija = data.linijeTekst[index];
+                    var title = data.linijeTekst[index];
+                    newCurr.broj = title.split(/ (.*)/)[0];
+                    newCurr.linija = title.split(/ (.*)/)[1];
                     return newCurr;
                 });
                 if (mappedArray.length == 0)
@@ -139,6 +143,9 @@ module.exports.scrapeBus = function (busId, day, rv) {
                     const bus = new BusTwoWay();
                     bus.id = busId.toUpperCase();
                     bus.dan = day.toUpperCase();
+                    var title = $('div.table-title').text().trim().slice(8);
+                    bus.broj = title.substr(0,title.indexOf(' '));
+                    bus.naziv = title.substr(title.indexOf(' ')+1);
                     bus.linijaA = $('tbody > tr > th').slice(0, 1).text().trim();
                     bus.linijaB = $('tbody > tr > th').slice(1, 2).text().trim();
                     bus.linijaA = bus.linijaA.slice(9);
@@ -178,6 +185,9 @@ module.exports.scrapeBus = function (busId, day, rv) {
                     const bus = new Bus();
                     bus.id = busId.toUpperCase();
                     bus.dan = day.toUpperCase();
+                    var title = $('div.table-title').text().trim().slice(8);
+                    bus.broj = title.substr(0,title.indexOf(' '));
+                    bus.naziv = title.substr(title.indexOf(' ')+1);
                     bus.linija = $('tbody > tr > th').text().trim();
                     bus.linija = bus.linija.slice(9);
                     bus.dodaci = $('tbody > tr:nth-child(3) > td').text().trim();
