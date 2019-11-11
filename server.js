@@ -9,7 +9,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-const port = 8080;
+const port = process.env.PORT || 80;
 const busesController = require('./api/controllers/buses');
 const lanesController = require('./api/controllers/lanes');
 
@@ -20,7 +20,8 @@ if(process.env.NODE_ENV !== 'test') {
 
 //Change swagger host if BASE_HOST env variable is set
 if(process.env.BASE_HOST){
-    swaggerDocument.host = `${process.env.BASE_HOST}:${port}`;
+    //swaggerDocument.host = `${process.env.BASE_HOST}:${port}`;
+    swaggerDocument.host = `${process.env.BASE_HOST}`;
 } else {
     swaggerDocument.host = `localhost:${port}`;
 }
