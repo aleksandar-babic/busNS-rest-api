@@ -18,7 +18,7 @@
     "name" : "users",
     "description" : "Operations available to unauthenticated api users"
   } ],
-  "schemes" : [ "http" ],
+  "schemes" : [ "https" ],
   "paths" : {
     "/buses/{id}" : {
       "get" : {
