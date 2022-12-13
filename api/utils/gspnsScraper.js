@@ -2,6 +2,7 @@
  * Created by Aleksandar Babic on 19.11.17..
  * Take a look at my portfolio at https://aleksandar.alfa-ing.com
  */
+const axios = require('axios');
 const osmosis = require('osmosis');
 const cheerio = require('cheerio');
 const request = require('request');
@@ -36,24 +37,55 @@ module.exports.scrapeLaneCity = function (day) {
             }
         });
         //TODO Implement caching for city lanes
-        osmosis.get(URL)
-            .find('#linija')
-            .set({'linije': ['option@value']})
-            .set({'linijeTekst': ['option']})
-            .data(async data => {
-                "use strict";
-                const mappedArray = await data.linije.map((curr, index) => {
-                    const newCurr = new Lane();
-                    newCurr.id = curr;
-                    var title = data.linijeTekst[index];
-                    newCurr.broj = title.split(/ (.*)/)[0];
-                    newCurr.linija = title.split(/ (.*)/)[1];
-                    return newCurr;
-                });
-                if (mappedArray.length == 0)
-                    return reject(({'message': 'Error while getting lanes, got no results'}));
-                resolve(mappedArray);
+        // osmosis.get(URL)
+        //     .find('#linija')
+        //     .set({'linije': ['option@value']})
+        //     .set({'linijeTekst': ['option']})
+        //     .data(async data => {
+                // "use strict";
+                // const mappedArray = await data.linije.map((curr, index) => {
+                //     const newCurr = new Lane();
+                //     newCurr.id = curr;
+                //     var title = data.linijeTekst[index];
+                //     newCurr.broj = title.split(/ (.*)/)[0];
+                //     newCurr.linija = title.split(/ (.*)/)[1];
+                //     return newCurr;
+                // });
+                // if (mappedArray.length == 0)
+                //     return reject(({'message': 'Error while getting lanes, got no results'}));
+                // resolve(mappedArray);
+        //     });
+
+
+        axios.get(URL)
+        .then((response) =>{
+
+            const $ = cheerio.load(response.data);
+            let linije = [];
+            let linijeTekst = [];
+            $("#linija").find('option').each((i,op) => {
+                linije.push($(op).val())
+                linijeTekst.push($(op).text())
+            })
+
+            const mappedArray =  linije.map((curr, index) => {
+                const newCurr = new Lane();
+                newCurr.id = curr;
+                var title = linijeTekst[index];
+                newCurr.broj = title.split(/ (.*)/)[0];
+                newCurr.linija = title.split(/ (.*)/)[1];
+                return newCurr;
             });
+            if (mappedArray.length == 0)
+                return reject(({'message': 'Error while getting lanes, got no results'}));
+            resolve(mappedArray);
+        })
+        .catch((err) =>{
+            console.log("err ", err);
+            return reject({'message': 'Failed to get base values from form'});
+        });
+
+
     });
 };
 
