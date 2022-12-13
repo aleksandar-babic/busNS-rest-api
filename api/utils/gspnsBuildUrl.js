@@ -49,10 +49,10 @@ module.exports.getUrlBaseValues = function() {
             let rv = [];
             let dan = [];
             $("#rv").find('option').each((i,op) => {
-                rv.push($(op).text())
+                rv.push($(op).val())
             })
             $('#dan').find('option').each((i,op) => {
-                dan.push($(op).text())
+                dan.push($(op).val())
             })
 
             resolve({vaziod, rv, dan});
