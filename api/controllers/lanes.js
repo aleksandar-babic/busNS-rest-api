@@ -95,7 +95,6 @@ function getLanes(req, res) {
             .json({'message': 'Malformed request, allowed values for query parameter rv are \'rvg\', \'rvp\''});
     }
 
-    console.log('before scrapeLaneCity')
     if (rv === 'rvg') {
         utilsScraper.scrapeLaneCity(dan)
             .then(lanes => res.status(200).json(lanes))
