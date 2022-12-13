@@ -30,7 +30,7 @@ module.exports.scrapeLaneCity = function (day) {
         const URL = buildUrl(baseUrl, {
             queryParams: {
                 rv: 'rvg',
-                vaziod: queryData.vaziod[queryData.vaziod.length - 1],
+                vaziod: queryData.vaziod,
                 dan: queryData.dan.includes(day) ? day : 'R'
             }
         });
