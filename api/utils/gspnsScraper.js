@@ -23,6 +23,7 @@ module.exports.scrapeLaneCity = function (day) {
         day = day ? day.toUpperCase() : false;
         try {
             queryData = await utilsBuildUrl.getUrlBaseValues();
+            console.log("queryData", queryData);
         } catch (e) {
             return reject(({'message': `Error while getting base url values. ERROR: ${e}`}));
         }
